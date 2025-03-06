@@ -22,7 +22,7 @@ RUN rosdep init
 RUN rosdep update
 RUN apt install -y g++ cmake
 
-RUN apt install -y ros-humble-rclcpp ros-humble-std-msgs ros-humble-sensor-msgs ros-humble-cv-bridge ros-humble-image-transport ros-humble-ament-cmake libopencv-dev libsdl2-dev
+RUN apt install -y ros-humble-rclcpp ros-humble-std-msgs ros-humble-sensor-msgs ros-humble-cv-bridge ros-humble-image-transport ros-humble-ament-cmake libopencv-dev libsdl2-dev ros-humble-rqt-graph ros-humble-rqt-plot ros-humble-rqt-common-plugins
 RUN curl -L https://download.jetbrains.com/cpp/CLion-2024.3.4.tar.gz --output /opt/clion
 RUN tar xvzf /opt/clion -C /opt
 RUN ln -s /opt/clion-*/bin/clion /bin/clion

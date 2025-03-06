@@ -30,26 +30,22 @@ Replace <projekt-folder> with (absolute) path to your project directory.
 ```bash
 xhost +local:docker
 docker build -t ros2 . --load
-docker run --name ros2 -d -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix  -v <projekt-folder>:/projekt -it ros2
+docker run --name ros2 -d -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix  -v <projekt-folder>:/projekt -it ros2 bash
 ```
 
 #### container
+***Please delete `.idea`, `.cmake-build-debug`, `install` and `log` folders before initializiang `rm -rf .idea .cmake-build-debug install log`***
+
 ```bash
 source /opt/ros/humble/setup.bash
-colcon build #firstime
-source install/setup.bash #firstime
-ros2 run prp_project prp_project
+colcon build
+source install/setup.bash
+exit
 ```
 
-### then
-
-#### host
-```bash
-xhost +local:docker
-docker container start ros2
-```
-#### container
-***Activate licence using token not useing login*** because there is no browser inside the container.
+### Run
+***Activate licence using `Login with token`*** because there is no browser inside the container.
+(somehow needed to kill - CTRL+C and than run again)
 ```bash
 ./ros2.bash
 ```
